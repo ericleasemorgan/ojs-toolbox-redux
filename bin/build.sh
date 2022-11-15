@@ -2,13 +2,21 @@
 
 # configure
 CORPORA='corpora'
-JOURNALS='./etc/journals.tsv'
+
+# sanity check
+if [[ -z $1 ]]; then
+	echo "Usage: $0 <tsv>" >&2
+	exit
+fi
+
+# get input
+TSV=$1
 
 # initialize
 IFS=$'\t'
 
 # process each journal
-cat $JOURNALS | while read TITLE KEY URL EXTENSION; do
+cat $TSV | sort -t$'\t' -k2 | while read TITLE KEY URL EXTENSION; do
 	
 	# initialize
 	echo >&2

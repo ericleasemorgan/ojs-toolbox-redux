@@ -53,7 +53,12 @@ $abstract =~ s/\r/ /g;
 $abstract =~ s/\n/ /g;
 $abstract =~ s/\t/ /g;
 $abstract =~ s/ +/ /g;
+
+$title =~ s/\r/ /g;
+$title =~ s/\n/ /g;
+$title =~ s/\t/ /g;
 $title =~ s/ +/ /g;
+
 $url   =~ s/view/download/g;
 
 if ( ! $url ) { exit }

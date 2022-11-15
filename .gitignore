@@ -1,1 +1,5 @@
 .DS_Store
+corpora
+etc/*.db
+etc/doaj-journals.numbers
+tmp
