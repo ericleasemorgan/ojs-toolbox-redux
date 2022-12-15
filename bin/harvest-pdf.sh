@@ -18,5 +18,5 @@ URL=$4
 
 # compute output, do the work (conditionally), and done
 OUTPUT="$CORPORA/$KEY/$CACHE/$KEY-$( echo $IDENTIFIER | cut -d '/' -f2 ).$EXTENSION"
-if [[ ! -e $OUTPUT ]]; then wget -O $OUTPUT $URL; fi
+if [[ ! -e $OUTPUT ]]; then wget -t 2 -T 10 -nv -O $OUTPUT $URL; fi
 exit
