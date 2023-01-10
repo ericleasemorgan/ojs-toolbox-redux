@@ -12,10 +12,10 @@
 # configure
 DB='./etc/ojs-journals.db'
 SCHEMA='./etc/schema-journals.sql'
-INSERT="ATTACH DATABASE './etc/##CODE##.db' AS addition; INSERT INTO main.bibliographics SELECT '##CODE##-'||REPLACE( identifier, RTRIM( identifier, REPLACE( identifier, '/', '' ) ), '' ) AS identifier, author, title, date, abstract, '##ROOT##/##CODE##/##CODE##-'||REPLACE( identifier, RTRIM( identifier, REPLACE( identifier, '/', '' ) ), '' )||'##EXTENSION##' FROM addition.bibliographics;DETACH DATABASE 'addition';"
+INSERT="ATTACH DATABASE './etc/##CODE##.db' AS addition; INSERT INTO main.bibliographics SELECT '##CODE##-'||REPLACE( identifier, RTRIM( identifier, REPLACE( identifier, '/', '' ) ), '' ) AS identifier, author, title, date, abstract, '##ROOT##/##CODE##/##CODE##-'||REPLACE( identifier, RTRIM( identifier, REPLACE( identifier, '/', '' ) ), '' )||extension FROM addition.bibliographics WHERE extension > '';DETACH DATABASE 'addition';"
 CORPORA='corpora'
 ROOT='https://distantreader.org/stacks/journals'
-EXTENSION='.pdf'
+#EXTENSION='.pdf'
 
 # initialize
 rm -rf $DB
@@ -34,7 +34,8 @@ find $CORPORA -maxdepth 1 -type d | sort | while read JOURNAL; do
 	echo $CODE >&2
 	
 	# create some SQL and do the work
-	SQL=$( echo $INSERT | sed "s|##CODE##|$CODE|g" | sed "s|##ROOT##|$ROOT|g" | sed "s|##EXTENSION##|$EXTENSION|g" )
+	#SQL=$( echo $INSERT | sed "s|##CODE##|$CODE|g" | sed "s|##ROOT##|$ROOT|g" | sed "s|##EXTENSION##|$EXTENSION|g" )
+	SQL=$( echo $INSERT | sed "s|##CODE##|$CODE|g" | sed "s|##ROOT##|$ROOT|g" )
 	echo $SQL | sqlite3 $DB
 
 done

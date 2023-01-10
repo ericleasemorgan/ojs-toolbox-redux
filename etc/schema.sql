@@ -19,7 +19,9 @@ CREATE TABLE bibliographics (
 	sentences  INTEGER,
 	flesch     INTEGER,
 	url        TEXT,
-	abstract   TEXT
+	abstract   TEXT,
+	extension  TEXT
+	
 );
 	
 -- computed significant words

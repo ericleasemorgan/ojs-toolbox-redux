@@ -62,7 +62,8 @@ cat $TSV | sort -t$'\t' -k2 | while read TITLE KEY URL EXTENSION; do
 
 	# harvest pdf
 	echo "Harvesting content" >&2
-	printf ".mode tabs\nSELECT identifier, url FROM bibliographics;" | sqlite3 $DATABASE | parallel --colsep '\t' ./bin/harvest-pdf.sh $KEY $EXTENSION '$1' '$2' 
-
+	#printf ".mode tabs\nSELECT identifier, url FROM bibliographics;" | sqlite3 $DATABASE | parallel --colsep '\t' ./bin/harvest-pdf.sh $KEY $EXTENSION '$1' '$2' 
+	./bin/harvest.py $KEY
+	
 done
 exit

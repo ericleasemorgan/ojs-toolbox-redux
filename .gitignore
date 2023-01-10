@@ -2,6 +2,7 @@
 corpora
 etc/*.db
 etc/doaj-journals.numbers
+journals/
 log/
 tmp
 x-*
