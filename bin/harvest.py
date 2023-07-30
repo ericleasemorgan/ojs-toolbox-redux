@@ -12,7 +12,7 @@
 # configure
 CORPORA    = 'corpora'
 CACHE      = 'cache'
-EXTENSIONS = { 'text/html; charset=utf-8':'.htm', 'text/html;charset=utf-8':'.htm', 'text/html; charset=iso-8859-1':'.htm', 'text/html':'.htm', 'application/pdf':'.pdf', 'text/html; charset=UTF-8':'.htm', 'application/msword':'.doc', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':'.docx'}
+EXTENSIONS = { 'text/html;charset=UTF-8':'.htm', 'text/html; charset=utf-8':'.htm', 'text/html;charset=utf-8':'.htm', 'text/html; charset=iso-8859-1':'.htm', 'text/html':'.htm', 'application/pdf':'.pdf', 'text/html; charset=UTF-8':'.htm', 'application/msword':'.doc', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':'.docx'}
 DB         = './etc/##KEY##.db'
 SQL        = 'SELECT identifier, url FROM bibliographics;'
 POOL       = 12

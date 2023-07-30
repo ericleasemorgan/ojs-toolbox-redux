@@ -3,7 +3,7 @@
 # db-create.sh
 
 # configure
-SCHEMA='./etc/schema.sql'
+SCHEMA='./etc/schema-bibliographics.sql'
 
 if [[ -z $1 ]]; then
 	echo 'Usage: $0 <key>' >&2

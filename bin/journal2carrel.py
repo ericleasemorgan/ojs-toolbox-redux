@@ -8,23 +8,23 @@
 # December 4, 2022 - first cut
 
 
-JOURNAL = 'jsta'
+JOURNAL = 'eblip'
 
 # configure
 CORPORA        = 'corpora'
 CACHE          = 'cache'
 METADATA       = 'metadata.csv'
 BIBLIOGRAPHICS = 'bibliographics.tsv'
-EXTENSION      = '.pdf'
+EXTENSION      = '.htm'
 TEMPLATE       = 'journal-##JOURNALCODE##-doaj'
 
 # require
-from pathlib import Path
+from   pathlib import Path
 import pandas as pd
 import rdr
 
 # initialize
-journal        = JOURNAL
+journal = JOURNAL
 
 # slurp up the bibliographics and create a new column
 bibliographics           = Path( CORPORA)/journal/BIBLIOGRAPHICS
@@ -41,8 +41,8 @@ directory = str( Path( CORPORA )/journal/CACHE )
 rdr.build( carrel, directory, erase=True, start=True )
 
 # do a bit of modeling
-rdr.cluster( carrel, type='dendrogram', save=True )
-rdr.summarize( carrel )
+#rdr.cluster( carrel, type='dendrogram', save=True )
+#rdr.summarize( carrel )
 
 # done
 exit()

@@ -10,7 +10,7 @@
 
 # configure
 CORPORA='corpora'
-CACHE='/shared/sandbox/ojs-toolbox-redux/corpora'
+CACHE='/shared/sandbox/ojs-toolbox/corpora'
 STACKS='/var/www/html/stacks/journals'
 RMTEMPLATE='rm -rf ##STACKS##/##CODE##'
 LINKTEMPLATE='ln -s ##CACHE##/##CODE##/cache ##STACKS##/##CODE##'

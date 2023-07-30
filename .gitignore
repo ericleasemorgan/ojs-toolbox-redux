@@ -4,5 +4,6 @@ etc/*.db
 etc/doaj-journals.numbers
 journals/
 log/
+marc
 tmp
 x-*
